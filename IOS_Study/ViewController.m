@@ -38,7 +38,7 @@
 @end
 
 
-@interface ViewController ()<UITableViewDataSource>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
@@ -73,7 +73,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     UITableView *tableView= [[UITableView alloc] initWithFrame:self.view.bounds];
+    
+    // UITableViewDataSource 提供数据
     tableView.dataSource = self;
+    
+    //UITableViewDelegate 提供 事件 消失的时机 header、footer 设置
+    tableView.delegate = self;
+    
+    
     [self.view addSubview:tableView];
 }
 
@@ -82,13 +89,31 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
-    cell.textLabel.text = @"主标题";
+//  UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+//  由系统提供的服用逻辑，先到系统回收池中去取
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    if(!cell){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@",@(indexPath.row)];  //@"主标题";
     cell.detailTextLabel.text = @"副标题";
     cell.imageView.image = [UIImage imageNamed:@"home"];
     return cell;
 }
 
+
+// UITableView delegate
+// 设置高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100;
+}
+// 点击哪个cell，获取index 实现一个点击进入对应页面的逻辑， 新建一个 uiviewcontroller
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIViewController *controller = [[UIViewController alloc] init];
+    controller.view.backgroundColor = [UIColor systemPinkColor];
+    controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 
 // 执行的方法
 -(void)pushController{
