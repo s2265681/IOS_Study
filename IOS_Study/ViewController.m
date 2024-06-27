@@ -96,11 +96,29 @@
 //    
     
     
-        TestView *view  = [[TestView alloc] init];
-        view.backgroundColor = [UIColor greenColor];
-        view.frame = CGRectMake(110, 150, 100, 100);
-        [self.view addSubview:view];
+    TestView *view  = [[TestView alloc] init];
+    view.backgroundColor = [UIColor greenColor];
+    view.frame = CGRectMake(110, 150, 100, 100);
+    [self.view addSubview:view];
     
+    // 给view 添加手势动作，触发执行navigation的push view操作
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
+    [view addGestureRecognizer:tapGesture];
+    
+}
+
+// 执行的方法
+-(void)pushController{
+    // 新建一个viewControll 视图
+    UIViewController *viewController =  [[UIViewController alloc] init];
+    // 添加背景色
+    viewController.view.backgroundColor = [UIColor whiteColor];
+    // 设置当前view的title文字
+    viewController.navigationItem.title = @"内容";
+    // 设置右侧文字内容
+    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
+    // 添加到navigation跳转view逻辑上
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 
