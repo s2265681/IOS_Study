@@ -38,7 +38,7 @@
 @end
 
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDataSource>
 
 @end
 
@@ -71,41 +71,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    // Do any additional setup after loading the view.
-    // 设置一个 hello world
-//    [self.view addSubview:({
-//        UILabel *label = [[UILabel alloc] init];
-//        label.text = @"hello world";
-//        [label sizeToFit];
-//        label.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
-//        label;
-//    })];
-//    
-//    UIView *view2  = [[UIView alloc] init];
-//    view2.backgroundColor = [UIColor redColor];
-//    view2.frame = CGRectMake(100, 100, 100, 100);
-//    [self.view addSubview:view2];
-//    
-//    UIView *view  = [[UIView alloc] init];
-//    view.backgroundColor = [UIColor greenColor];
-//    view.frame = CGRectMake(110, 150, 100, 100);
-//    [self.view addSubview:view];
-//    
-    
-    
-    TestView *view  = [[TestView alloc] init];
-    view.backgroundColor = [UIColor greenColor];
-    view.frame = CGRectMake(110, 150, 100, 100);
-    [self.view addSubview:view];
-    
-    // 给view 添加手势动作，触发执行navigation的push view操作
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
-    [view addGestureRecognizer:tapGesture];
-    
+    UITableView *tableView= [[UITableView alloc] initWithFrame:self.view.bounds];
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+    cell.textLabel.text = @"主标题";
+    cell.detailTextLabel.text = @"副标题";
+    cell.imageView.image = [UIImage imageNamed:@"home"];
+    return cell;
+}
+
 
 // 执行的方法
 -(void)pushController{
