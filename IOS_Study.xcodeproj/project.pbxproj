@@ -16,6 +16,7 @@
 		0474F0582C2B0BFF0088B1E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474F0572C2B0BFF0088B1E2 /* main.m */; };
 		04A06AAD2C2E33CF00771704 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */; };
 		04A06AB02C2E481200771704 /* GTRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AAF2C2E481200771704 /* GTRecommendController.m */; };
+		04A06AB32C2E6CE200771704 /* GTNormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AB22C2E6CE200771704 /* GTNormalTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 		04A06AAE2C2E481200771704 /* GTRecommendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTRecommendController.h; sourceTree = "<group>"; };
 		04A06AAF2C2E481200771704 /* GTRecommendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTRecommendController.m; sourceTree = "<group>"; };
+		04A06AB12C2E6CE200771704 /* GTNormalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTNormalTableViewCell.h; sourceTree = "<group>"; };
+		04A06AB22C2E6CE200771704 /* GTNormalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTNormalTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,8 @@
 				04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */,
 				04A06AAE2C2E481200771704 /* GTRecommendController.h */,
 				04A06AAF2C2E481200771704 /* GTRecommendController.m */,
+				04A06AB12C2E6CE200771704 /* GTNormalTableViewCell.h */,
+				04A06AB22C2E6CE200771704 /* GTNormalTableViewCell.m */,
 			);
 			path = IOS_Study;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A06AB32C2E6CE200771704 /* GTNormalTableViewCell.m in Sources */,
 				0474F04D2C2B0BFE0088B1E2 /* ViewController.m in Sources */,
 				04A06AAD2C2E33CF00771704 /* GTVideoViewController.m in Sources */,
 				0474F0472C2B0BFE0088B1E2 /* AppDelegate.m in Sources */,

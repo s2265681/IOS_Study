@@ -6,36 +6,7 @@
 //
 
 #import "ViewController.h"
-
-
-@interface TestView : UIView
-@end
-
-@implementation TestView
-
--(instancetype)init{
-    self = [super init];
-    if(self){
-        
-    }
-    return self;
-}
-
-- (void)willMoveToSuperview:(nullable UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
-}
-- (void)didMoveToSuperview{
-    [super didMoveToSuperview];
-}
-
-- (void)willMoveToWindow:(nullable UIWindow *)newWindow{
-    [super willMoveToSuperview:newWindow];
-}
-
-- (void)didMoveToWindow{
-    [super didMoveToWindow];
-}
-@end
+#import "GTNormalTableViewCell.h"
 
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -91,13 +62,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 //  UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
 //  由系统提供的服用逻辑，先到系统回收池中去取
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
+    GTNormalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"id"];
     if(!cell){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
+        cell = [[GTNormalTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"id"];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@",@(indexPath.row)];  //@"主标题";
-    cell.detailTextLabel.text = @"副标题";
-    cell.imageView.image = [UIImage imageNamed:@"home"];
+    
+    // 每次的 TableView 需要布局的时候调用这个方法
+    [cell layoutTableViewCell];
+    
+    
+//    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@",@(indexPath.row)];  //@"主标题";
+//    cell.detailTextLabel.text = @"副标题";
+//    cell.imageView.image = [UIImage imageNamed:@"home"];
     return cell;
 }
 
