@@ -1,0 +1,72 @@
+
+#import "GTRecommendController.h"
+
+@interface GTRecommendController ()<UIScrollViewDelegate>
+
+@end
+
+@implementation GTRecommendController
+
+- (instancetype) init{
+    self = [super init];
+    if(self){
+        self.tabBarItem.title = @"推荐";
+        self.tabBarItem.image = [UIImage imageNamed:@"expore"];
+        self.tabBarItem.selectedImage = [UIImage imageNamed:@"expore-active"];
+    }
+    return self;
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+     self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    scrollView.backgroundColor = [UIColor lightGrayColor];
+    scrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 5, self.view.bounds.size.height);
+    
+    NSArray *colorArray = @[[UIColor redColor], [UIColor blueColor],[UIColor yellowColor],[UIColor lightGrayColor],[UIColor grayColor]];
+    
+    for (int i =0; i < 5; i++) {
+        [scrollView addSubview:({
+             UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(scrollView.bounds.size.width * i, 0, scrollView.bounds.size.width,scrollView.bounds.size.height)];
+            view.backgroundColor = [colorArray objectAtIndex:i];
+            view;
+        })
+       ];
+      
+    }
+    // 是否有翻页效果
+    scrollView.pagingEnabled = YES;
+    
+    // delegate
+    scrollView.delegate = self;
+    
+    [self.view addSubview:scrollView];
+}
+
+// 开始滚动
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"scrollViewDidScroll - %@",@(scrollView.contentOffset.x));
+}
+
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    NSLog(@"开始拖拽");
+};
+
+// called on finger up if the user dragged. decelerate is true if it will continue moving afterwards
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    NSLog(@"结束拖拽");
+};
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    NSLog(@"开始滚动");
+};
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSLog(@"结束滚动");
+};
+
+@end

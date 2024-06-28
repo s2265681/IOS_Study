@@ -2,6 +2,7 @@
 #import "SceneDelegate.h"
 #import "ViewController.h"
 #import "GTVideoViewController.h"
+#import "GTRecommendController.h"
 
 @interface SceneDelegate ()<UITabBarControllerDelegate>
 
@@ -36,11 +37,13 @@
     GTVideoViewController *videoController = [[GTVideoViewController alloc] init];
 
     
-    UIViewController *controller3 = [[UIViewController alloc] init];
-    controller3.view.backgroundColor = [UIColor greenColor];
-    controller3.tabBarItem.title = @"推荐";
-    controller3.tabBarItem.image = [UIImage imageNamed:@"setting"];
-    controller3.tabBarItem.selectedImage = [UIImage imageNamed:@"setting-active"];
+    GTRecommendController *recommendColler = [[GTRecommendController alloc] init];
+    
+//    UIViewController *controller3 = [[UIViewController alloc] init];
+//    controller3.view.backgroundColor = [UIColor greenColor];
+//    controller3.tabBarItem.title = @"推荐";
+//    controller3.tabBarItem.image = [UIImage imageNamed:@"setting"];
+//    controller3.tabBarItem.selectedImage = [UIImage imageNamed:@"setting-active"];
     
     UIViewController *controller4 = [[UIViewController alloc] init];
     controller4.view.backgroundColor = [UIColor lightGrayColor];
@@ -51,7 +54,7 @@
     // 给TabBar设置一个背景色
     tabbarController.tabBar.backgroundColor = [UIColor orangeColor];
     // 用 navigationController 替换 controller1
-    [tabbarController setViewControllers:@[controller1,videoController,controller3,controller4]];
+    [tabbarController setViewControllers:@[controller1,videoController,recommendColler,controller4]];
     
     // 调用delegate 的方法
     tabbarController.delegate = self;
