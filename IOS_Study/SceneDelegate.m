@@ -1,6 +1,7 @@
 
 #import "SceneDelegate.h"
 #import "ViewController.h"
+#import "GTVideoViewController.h"
 
 @interface SceneDelegate ()<UITabBarControllerDelegate>
 
@@ -26,17 +27,14 @@
 //    navigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"home-active"];
 //    
     UIViewController *controller1 = viewController; // [[UIViewController alloc] init];
-    controller1.view.backgroundColor = [UIColor redColor];
-    controller1.tabBarItem.title = @"新闻";
-    controller1.tabBarItem.image = [UIImage imageNamed:@"home"];
-    controller1.tabBarItem.selectedImage = [UIImage imageNamed:@"home-active"];
+    viewController.view.backgroundColor = [UIColor redColor];
+    viewController.tabBarItem.title = @"新闻";
+    viewController.tabBarItem.image = [UIImage imageNamed:@"home"];
+    viewController.tabBarItem.selectedImage = [UIImage imageNamed:@"home-active"];
 
     
-    UIViewController *controller2 = [[UIViewController alloc] init];
-    controller2.view.backgroundColor = [UIColor yellowColor];
-    controller2.tabBarItem.title = @"视频";
-    controller2.tabBarItem.image = [UIImage imageNamed:@"expore"];
-    controller2.tabBarItem.selectedImage = [UIImage imageNamed:@"expore-active"];
+    GTVideoViewController *videoController = [[GTVideoViewController alloc] init];
+
     
     UIViewController *controller3 = [[UIViewController alloc] init];
     controller3.view.backgroundColor = [UIColor greenColor];
@@ -53,7 +51,7 @@
     // 给TabBar设置一个背景色
     tabbarController.tabBar.backgroundColor = [UIColor orangeColor];
     // 用 navigationController 替换 controller1
-    [tabbarController setViewControllers:@[controller1,controller2,controller3,controller4]];
+    [tabbarController setViewControllers:@[controller1,videoController,controller3,controller4]];
     
     // 调用delegate 的方法
     tabbarController.delegate = self;

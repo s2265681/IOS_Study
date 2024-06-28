@@ -14,6 +14,7 @@
 		0474F0522C2B0BFF0088B1E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0474F0512C2B0BFF0088B1E2 /* Assets.xcassets */; };
 		0474F0552C2B0BFF0088B1E2 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 0474F0542C2B0BFF0088B1E2 /* Base */; };
 		0474F0582C2B0BFF0088B1E2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0474F0572C2B0BFF0088B1E2 /* main.m */; };
+		04A06AAD2C2E33CF00771704 /* GTVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		0474F0562C2B0BFF0088B1E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0474F0572C2B0BFF0088B1E2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0474F05E2C2B0D9E0088B1E2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		04A06AAB2C2E33CF00771704 /* GTVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTVideoViewController.h; sourceTree = "<group>"; };
+		04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTVideoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,8 @@
 				0474F0532C2B0BFF0088B1E2 /* LaunchScreen.storyboard */,
 				0474F0562C2B0BFF0088B1E2 /* Info.plist */,
 				0474F0572C2B0BFF0088B1E2 /* main.m */,
+				04A06AAB2C2E33CF00771704 /* GTVideoViewController.h */,
+				04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */,
 			);
 			path = IOS_Study;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0474F04D2C2B0BFE0088B1E2 /* ViewController.m in Sources */,
+				04A06AAD2C2E33CF00771704 /* GTVideoViewController.m in Sources */,
 				0474F0472C2B0BFE0088B1E2 /* AppDelegate.m in Sources */,
 				0474F0582C2B0BFF0088B1E2 /* main.m in Sources */,
 				0474F04A2C2B0BFE0088B1E2 /* SceneDelegate.m in Sources */,
