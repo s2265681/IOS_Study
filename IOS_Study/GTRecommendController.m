@@ -1,7 +1,7 @@
 
 #import "GTRecommendController.h"
 
-@interface GTRecommendController ()<UIScrollViewDelegate>
+@interface GTRecommendController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
 @end
 
@@ -39,6 +39,10 @@
                 view.backgroundColor = [UIColor yellowColor];
                 // 创建手势
                 UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
+                
+                // 将手势的 delegate 设置为self
+                tapGesture.delegate = self;
+                
                 // 添加到view
                 [view addGestureRecognizer:tapGesture];
                 view;
@@ -57,6 +61,11 @@
     
     [self.view addSubview:scrollView];
 }
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    // 手势是否需要识别
+    return YES;
+};
 
 - (void)viewClick{
     NSLog(@"点击view");
