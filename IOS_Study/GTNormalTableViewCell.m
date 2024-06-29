@@ -60,10 +60,14 @@
         
         // 添加按钮
         [self.contentView addSubview:({
-            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 78, 30, 20)];
+            self.deleteButton = [[UIButton alloc] initWithFrame:CGRectMake(260, 78, 30, 20)];
             [self.deleteButton setTitle:@"X" forState: UIControlStateNormal];
             [self.deleteButton setTitle:@"V" forState: UIControlStateHighlighted];
             self.deleteButton.backgroundColor = [UIColor orangeColor];
+            
+            // 添加 target action
+            [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
+            
             self.deleteButton;
         })];
     }
@@ -87,6 +91,11 @@
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y , self.timeLabel.frame.size.width,self.timeLabel.frame.size.height);
     
     self.rightImageView.image = [UIImage imageNamed:@"setting"];
+}
+
+
+-(void) deleteButtonClick{
+      NSLog(@"deleteButtonClick");
 }
 
 @end

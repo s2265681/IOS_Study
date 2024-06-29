@@ -31,19 +31,35 @@
     for (int i =0; i < 5; i++) {
         [scrollView addSubview:({
              UIView *view =  [[UIView alloc] initWithFrame:CGRectMake(scrollView.bounds.size.width * i, 0, scrollView.bounds.size.width,scrollView.bounds.size.height)];
+ 
+            
+            // 创建一个新的 view 添加手势demo
+            [view addSubview:({
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
+                view.backgroundColor = [UIColor yellowColor];
+                // 创建手势
+                UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewClick)];
+                // 添加到view
+                [view addGestureRecognizer:tapGesture];
+                view;
+            })];
+            
+            
             view.backgroundColor = [colorArray objectAtIndex:i];
             view;
         })
        ];
-      
     }
     // 是否有翻页效果
     scrollView.pagingEnabled = YES;
-    
     // delegate
     scrollView.delegate = self;
     
     [self.view addSubview:scrollView];
+}
+
+- (void)viewClick{
+    NSLog(@"点击view");
 }
 
 // 开始滚动
