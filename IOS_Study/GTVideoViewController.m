@@ -55,7 +55,7 @@
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     // 从系统回收池内获取 cell 去不到会从上面的注册 cell 的地方创建
-    UICollectionView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath: indexPath];
+    __kindof UICollectionView *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath: indexPath];
         cell.backgroundColor  = [UIColor redColor];
         return cell;
 }

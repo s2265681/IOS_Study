@@ -8,9 +8,11 @@
 #import "ViewController.h"
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
-
+#import "GTListLoader.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property(nonatomic,strong,readwrite) GTListLoader *listLoader;
 
 @end
 
@@ -54,6 +56,13 @@
     
     
     [self.view addSubview:tableView];
+    
+    // 调用loader网络请求
+    // 生成listLoader
+    self.listLoader = [[GTListLoader alloc] init];
+    // 调用 loadListData 方法
+    [self.listLoader loadListData];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
