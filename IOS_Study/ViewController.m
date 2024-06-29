@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import "GTNormalTableViewCell.h"
+#import "GTDetailViewController.h"
 
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -83,9 +84,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
 }
+
 // 点击哪个cell，获取index 实现一个点击进入对应页面的逻辑， 新建一个 uiviewcontroller
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIViewController *controller = [[UIViewController alloc] init];
+    // 进入新建的ViewController
+    // UIViewController *controller = [[UIViewController alloc] init];
+    // 进入GTDetailViewController
+    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
     controller.view.backgroundColor = [UIColor systemPinkColor];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];
