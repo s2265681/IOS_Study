@@ -11,6 +11,8 @@
 @interface GTDetailViewController ()<WKNavigationDelegate>
 @property(nonatomic,strong,readwrite) WKWebView *webView;
 @property(nonatomic,strong,readwrite) UIProgressView *progressView;
+// 文章url
+@property(nonatomic,copy,readwrite) NSString *articleUrl;
 
 @end
 
@@ -20,6 +22,19 @@
 -(void)dealloc{
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 };
+
+
+/**
+ 传入url 展示详情页
+ */
+-(instancetype)initWithUrlString:(NSString *)urlString{
+    self= [super init];
+    if(self){
+        self.articleUrl = urlString;
+    }
+    return self;
+};
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,7 +53,7 @@
         self.progressView;
     })];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://time.geekbang.org"]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.articleUrl]]];
     
     // 添加 KVO 监听
     [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];

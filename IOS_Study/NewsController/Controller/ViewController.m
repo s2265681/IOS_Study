@@ -9,10 +9,12 @@
 #import "GTNormalTableViewCell.h"
 #import "GTDetailViewController.h"
 #import "GTListLoader.h"
+#import "GTListItem.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong,readwrite) GTListLoader *listLoader;
+@property(nonatomic,strong,readwrite) NSArray *dataArray;
 
 @end
 
@@ -61,8 +63,19 @@
     // 生成listLoader
     self.listLoader = [[GTListLoader alloc] init];
     // 调用 loadListData 方法
-    [self.listLoader loadListData];
     
+//    [self.listLoader loadListData];
+    
+    // 改造 loadListData 调用的方法 处理 self 循环引用
+    __weak typeof(self)wself = self;
+    [self.listLoader loadListDataWithFinishBlock:^(BOOL success, NSArray<GTListItem *> * _Nonnull dataArray) {
+        __strong typeof(wself) strongSelf = wself;
+        
+        strongSelf.dataArray = dataArray;
+//        [strongSelf.tableView reloadData];
+        
+        NSLog(@"");
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -78,7 +91,9 @@
     }
     
     // 每次的 TableView 需要布局的时候调用这个方法
-    [cell layoutTableViewCell];
+//    [cell layoutTableViewCell];
+    [cell layoutTableViewCellWithItem:[self.dataArray objectAtIndex:indexPath.row]];
+    
     
     
 //    cell.textLabel.text = [NSString stringWithFormat:@"主标题 - %@",@(indexPath.row)];  //@"主标题";
@@ -99,7 +114,12 @@
     // 进入新建的ViewController
     // UIViewController *controller = [[UIViewController alloc] init];
     // 进入GTDetailViewController
-    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
+    
+    // 通过 index 索引 获取dataArray 中的 每个信息
+    GTListItem *item = [self.dataArray objectAtIndex:indexPath.row];
+    GTDetailViewController *controller = [[GTDetailViewController alloc] initWithUrlString: item.articleUrl];
+//    GTDetailViewController *controller = [[GTDetailViewController alloc] init];
+    
     controller.view.backgroundColor = [UIColor systemPinkColor];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];

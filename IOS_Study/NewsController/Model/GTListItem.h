@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy,readwrite) NSString *authorName;
 @property(nonatomic,copy,readwrite) NSString *articleUrl;
 
+// 这个函数解析赋值上面的所有属性
+-(void)configWithDictionary:(NSDictionary *)dictionary;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -88,6 +88,7 @@
 		0474F0442C2B0BFE0088B1E2 /* IOS_Study */ = {
 			isa = PBXGroup;
 			children = (
+				04A06AC12C33A21300771704 /* detail */,
 				04A06ABB2C3056AA00771704 /* NewsController */,
 				0474F0452C2B0BFE0088B1E2 /* AppDelegate.h */,
 				0474F0462C2B0BFE0088B1E2 /* AppDelegate.m */,
@@ -102,8 +103,6 @@
 				04A06AAC2C2E33CF00771704 /* GTVideoViewController.m */,
 				04A06AAE2C2E481200771704 /* GTRecommendController.h */,
 				04A06AAF2C2E481200771704 /* GTRecommendController.m */,
-				04A06AB42C2FC18900771704 /* GTDetailViewController.h */,
-				04A06AB52C2FC18900771704 /* GTDetailViewController.m */,
 			);
 			path = IOS_Study;
 			sourceTree = "<group>";
@@ -145,6 +144,15 @@
 				04A06AB22C2E6CE200771704 /* GTNormalTableViewCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		04A06AC12C33A21300771704 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				04A06AB42C2FC18900771704 /* GTDetailViewController.h */,
+				04A06AB52C2FC18900771704 /* GTDetailViewController.m */,
+			);
+			path = detail;
 			sourceTree = "<group>";
 		};
 		1499654778A3799A673C7217 /* Pods */ = {
