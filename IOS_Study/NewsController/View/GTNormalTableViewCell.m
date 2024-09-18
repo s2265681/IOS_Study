@@ -1,5 +1,7 @@
 #import "GTNormalTableViewCell.h"
 #import "GTListItem.h"
+#import "UIImageView+WebCache.h"
+
 
 @interface  GTNormalTableViewCell()
 
@@ -90,9 +92,21 @@
     
     self.timeLabel.frame = CGRectMake(self.commentLabel.frame.origin.x + self.commentLabel.frame.size.width + 15, self.timeLabel.frame.origin.y , self.timeLabel.frame.size.width,self.timeLabel.frame.size.height);
     
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
     
-    self.rightImageView.image = image;
+   
+    // 优化图片加载 高耗时操作放到非主线程操作
+//    NSThread *downloadImageThread = [[NSThread alloc] initWithBlock:^{
+//        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+//        self.rightImageView.image = image;
+//    }];
+    //    downloadImageThread.name = @"downloadImageThread";
+    //    [downloadImageThread start];
+  
+    // 通过图片库设置图片的缓存加载
+    [self.rightImageView sd_setImageWithURL:[NSURL URLWithString: item.picUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL){
+        NSLog(@"11");
+    }];
+    
 }
 
 

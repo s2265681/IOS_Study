@@ -42,4 +42,27 @@
 }
 
 
+#pragma mark -- openURL options --
+// 处理scheme url 回调 ios13之前
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id>*)options{
+    return YES;
+};
+
+
+// 处理universlink  回调 ios13之前
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        NSURL *url = userActivity.webpageURL;
+        // 处理 URL
+        [self handleUniversalLink:url];
+    }
+    return YES;
+}
+
+- (void)handleUniversalLink:(NSURL *)url {
+    // 在这里处理你的 Universal Link
+    if ([url.host isEqualToString:@"yourdomain"]) {
+        // 执行相关操作，比如打开特定的视图控制器
+    }
+}
 @end

@@ -1,5 +1,6 @@
 
 #import "GTRecommendController.h"
+#import "IAPManager.h"
 
 @interface GTRecommendController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate>
 
@@ -69,7 +70,42 @@
 
 - (void)viewClick{
     NSLog(@"点击view");
+    [[IAPManager shareIAPManager] startPurchaseWithID:@"com.kalodata.app.price001" completeHandle:^(IAPPurchType type, NSData * _Nullable data) {
+        switch (type) {
+            case IAPPurchSuccess:
+                NSLog(@"购买成功");
+                // 处理购买成功的逻辑
+                break;
+            case IAPPurchFailed:
+                NSLog(@"购买失败");
+                // 处理购买失败的逻辑
+                break;
+            case IAPPurchCancel:
+                NSLog(@"取消购买");
+                // 处理取消购买的逻辑
+                break;
+            case IAPPurchVerFailed:
+                NSLog(@"订单校验失败");
+                // 处理订单校验失败的逻辑
+                break;
+            case IAPPurchVerSuccess:
+                NSLog(@"订单校验成功");
+                // 处理订单校验成功的逻辑
+                break;
+            case IAPPurchNotArrow:
+                NSLog(@"不允许内购");
+                // 处理不允许内购的逻辑
+                break;
+            default:
+                break;
+        }
+    }];
 }
+
+//// 假设这是一个按钮点击事件处理器
+//- (IBAction)purchaseButtonTapped:(id)sender {
+//   
+//}
 
 // 开始滚动
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

@@ -80,4 +80,29 @@
 }
 
 
+// 处理深度链接 Universal link的回调
+- (void)scene:(UIScene *)scene continueUserActivity:(NSUserActivity *)userActivity {
+    if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb]) {
+        NSURL *url = userActivity.webpageURL;
+        // 处理 URL
+        [self handleUniversalLink:url];
+    }
+}
+
+
+// 处理scheme url 回调
+- (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    for (UIOpenURLContext *context in URLContexts) {
+        NSURL *url = context.URL;
+        // 处理 URL
+        [self handleUniversalLink:url];
+    }
+}
+
+- (void)handleUniversalLink:(NSURL *)url {
+    // 在这里处理你的 Universal Link
+    if ([url.host isEqualToString:@"yourdomain"]) {
+        // 执行相关操作，比如打开特定的视图控制器
+    }
+}
 @end

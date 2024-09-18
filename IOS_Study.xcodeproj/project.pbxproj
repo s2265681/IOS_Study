@@ -20,6 +20,7 @@
 		04A06AB62C2FC18900771704 /* GTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AB52C2FC18900771704 /* GTDetailViewController.m */; };
 		04A06AB92C2FF4FD00771704 /* GTListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AB82C2FF4FD00771704 /* GTListLoader.m */; };
 		04A06AC02C30576900771704 /* GTListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06ABF2C30576900771704 /* GTListItem.m */; };
+		04A06AC52C3CCEE900771704 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A06AC42C3CCEE900771704 /* IAPManager.m */; };
 		73C76646229F491A93123240 /* libPods-IOS_Study.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A41963F595633EF8AEF75B9E /* libPods-IOS_Study.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,8 @@
 		04A06AB82C2FF4FD00771704 /* GTListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListLoader.m; sourceTree = "<group>"; };
 		04A06ABE2C30576900771704 /* GTListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTListItem.h; sourceTree = "<group>"; };
 		04A06ABF2C30576900771704 /* GTListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTListItem.m; sourceTree = "<group>"; };
+		04A06AC32C3CCEE900771704 /* IAPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
+		04A06AC42C3CCEE900771704 /* IAPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPManager.m; sourceTree = "<group>"; };
 		358949AFB68C1679E83F70B0 /* Pods-IOS_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_Study.release.xcconfig"; path = "Target Support Files/Pods-IOS_Study/Pods-IOS_Study.release.xcconfig"; sourceTree = "<group>"; };
 		A41963F595633EF8AEF75B9E /* libPods-IOS_Study.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IOS_Study.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20C53C2873E38B79B3968C7 /* Pods-IOS_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOS_Study.debug.xcconfig"; path = "Target Support Files/Pods-IOS_Study/Pods-IOS_Study.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +91,7 @@
 		0474F0442C2B0BFE0088B1E2 /* IOS_Study */ = {
 			isa = PBXGroup;
 			children = (
+				04A06AC22C3CCED200771704 /* IAPManager */,
 				04A06AC12C33A21300771704 /* detail */,
 				04A06ABB2C3056AA00771704 /* NewsController */,
 				0474F0452C2B0BFE0088B1E2 /* AppDelegate.h */,
@@ -153,6 +157,15 @@
 				04A06AB52C2FC18900771704 /* GTDetailViewController.m */,
 			);
 			path = detail;
+			sourceTree = "<group>";
+		};
+		04A06AC22C3CCED200771704 /* IAPManager */ = {
+			isa = PBXGroup;
+			children = (
+				04A06AC32C3CCEE900771704 /* IAPManager.h */,
+				04A06AC42C3CCEE900771704 /* IAPManager.m */,
+			);
+			path = IAPManager;
 			sourceTree = "<group>";
 		};
 		1499654778A3799A673C7217 /* Pods */ = {
@@ -272,6 +285,7 @@
 				04A06AB32C2E6CE200771704 /* GTNormalTableViewCell.m in Sources */,
 				0474F04D2C2B0BFE0088B1E2 /* ViewController.m in Sources */,
 				04A06AC02C30576900771704 /* GTListItem.m in Sources */,
+				04A06AC52C3CCEE900771704 /* IAPManager.m in Sources */,
 				04A06AAD2C2E33CF00771704 /* GTVideoViewController.m in Sources */,
 				04A06AB92C2FF4FD00771704 /* GTListLoader.m in Sources */,
 				0474F0472C2B0BFE0088B1E2 /* AppDelegate.m in Sources */,
